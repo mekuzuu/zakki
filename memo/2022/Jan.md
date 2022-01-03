@@ -12,7 +12,7 @@ contextは便利。
 
 ---
 
-1/3
+# 1/3
 
 ## Go
 
@@ -21,3 +21,5 @@ go2linqというLINQライブラリを発見。
 https://github.com/solsw/go2linq
 
 Genericsを使用している点が特徴かもしれない。
+
+---
