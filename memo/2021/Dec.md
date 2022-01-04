@@ -139,8 +139,6 @@ https://go.dev/doc/tutorial/generics
 
 公式のGenerics Tutorialを触ってみた。
 
-TypedParameter
-
 mapの要素をfor文でloopして加算する関数を例に、Genericsなしとありでどう違うのか学ぶことができる。
 
 - Genericsなし
