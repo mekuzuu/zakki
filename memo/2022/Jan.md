@@ -72,3 +72,17 @@ message Foo {
 ```
 
 https://developers.google.com/protocol-buffers/docs/proto3#reserved
+
+---
+
+# 1/6
+
+## Misc
+
+Rust製のCLIが便利で、Rustに興味を持ったのでRustをはじめようと思っている。
+
+こちらの記事が参考になりそう。
+
+https://blog-dry.com/entry/2021/01/23/141936
+
+---
