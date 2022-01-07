@@ -86,3 +86,21 @@ Rust製のCLIが便利で、Rustに興味を持ったのでRustをはじめよ�
 https://blog-dry.com/entry/2021/01/23/141936
 
 ---
+
+# 1/7
+
+## Rust
+
+Rustをインストールすると、bashやzshの場合は`.profile`のようなエントリポイントにPATHが自動的に設定される。
+
+しかし、fishの場合は`.profile`のようなエントリポイントを読み込まないため、設定されない。
+
+https://github.com/rust-lang/rustup/issues/478
+
+じゃ"あどうするかというと、`~/.config/fish/config.fish`に下記を追加すればよい。
+
+```
+set -x PATH $HOME/.cargo/bin $PATH
+```
+
+---
