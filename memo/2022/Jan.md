@@ -103,4 +103,75 @@ https://github.com/rust-lang/rustup/issues/478
 set -x PATH $HOME/.cargo/bin $PATH
 ```
 
+## Go
+
+1.17.6のマイナーバージョンのリリースが来てた。
+
+https://twitter.com/golang/status/1479199301352013829?s=20
+
+https://github.com/golang/go/issues?q=milestone%3AGo1.17.6+label%3ACherryPickApproved
+
+ぱっと見た感じ、低レイヤ系のパッチが多く正直よく分からなかった・・・。
+
+これだけはそこそこ理解できた気がする。
+
+https://github.com/golang/go/issues/49741
+
+
+```go
+package main
+
+import (
+	"io"
+	"log"
+	"net/http"
+	"net/http/httptest"
+	"strings"
+	"time"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	data := strings.Repeat("x", 1<<16)
+	tick := time.NewTicker(1 * time.Millisecond) // 1ミリ秒周期のticker。
+	defer tick.Stop()
+	for {
+		select {
+		case <-tick.C:
+			n, err := io.WriteString(w, data) // httpサーバーに対して書き込みを行う。
+			log.Printf("wrote %d, err %v", n, err)
+			if err != nil {
+				return
+			}
+		case <-r.Context().Done():
+			log.Printf("context cancelled")
+			return
+		}
+	}
+}
+
+func main() {
+	sv := httptest.NewUnstartedServer(http.HandlerFunc(handler))
+	sv.EnableHTTP2 = true
+	sv.Config.WriteTimeout = 1 * time.Second // request bodyの読み込み〜responseの書き込みまでのTimeoutを1秒に設定。
+	sv.StartTLS()
+
+	resp, err := sv.Client().Get(sv.URL + "/")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer resp.Body.Close()
+
+	select {} // block forever
+}
+```
+
+HTTP/2を有効にしたHTTPサーバーに対して書き込みを行うhandlerを定義している。
+
+このサーバーはRequest Bodyの読み込み〜Responseの書き込みまでのTimeoutを1秒に設定してある。
+
+実際に動かしてみると分かるが、
+> This program creates a HTTP2 service which fills the HTTP/2 stream's response window by failing to consume any data from the response body. The write deadline should fire after 1 second and terminate the response. It does not.
+
+とあるように、1秒後にResponseの書き込みがCloseされることを期待しているがCloseされないというものっぽい。
+
 ---
