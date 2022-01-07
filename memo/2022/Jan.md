@@ -97,7 +97,7 @@ Rustをインストールすると、bashやzshの場合は`.profile`のよう�
 
 https://github.com/rust-lang/rustup/issues/478
 
-じゃ"あどうするかというと、`~/.config/fish/config.fish`に下記を追加すればよい。
+じゃあどうするかというと、`~/.config/fish/config.fish`に下記を追加すればよい。
 
 ```
 set -x PATH $HOME/.cargo/bin $PATH
