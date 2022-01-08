@@ -175,3 +175,15 @@ HTTP/2を有効にしたHTTPサーバーに対して書き込みを行うhandler
 とあるように、1秒後にResponseの書き込みがCloseされることを期待しているがCloseされないというものっぽい。
 
 ---
+
+# 1/8
+
+## Go
+
+Go 1.18で知っておくべきことが、Miroというツール上で可視化されていて分かりやすい。
+
+Golang Weeklyで紹介されていた。
+
+https://miro.com/app/board/uXjVOaLW7dY=/
+
+---
