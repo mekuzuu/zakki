@@ -186,4 +186,10 @@ Golang Weeklyで紹介されていた。
 
 https://miro.com/app/board/uXjVOaLW7dY=/
 
+## Fish
+
+fish-shellを起動時にtmuxを起動する方法。
+
+https://github.com/fish-shell/fish-shell/issues/4434
+
 ---
