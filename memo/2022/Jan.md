@@ -193,3 +193,16 @@ fish-shellを起動時にtmuxを起動する方法。
 https://github.com/fish-shell/fish-shell/issues/4434
 
 ---
+
+# 1/9
+
+## Terminal Emulator
+
+alacrittyのthemeの設定を便利にしてくれるライブラリを発見した。
+
+https://github.com/rajasegar/alacritty-themes
+
+何が便利かというと、`alacritty-themes`コマンドでリアルタイムにthemeを確認できる。
+さらに、そのthemeを選択すると設定ファイルに反映してくれる。
+
+---
