@@ -205,4 +205,25 @@ https://github.com/rajasegar/alacritty-themes
 何が便利かというと、`alacritty-themes`コマンドでリアルタイムにthemeを確認できる。
 さらに、そのthemeを選択すると設定ファイルに反映してくれる。
 
+
+## Git CUI
+
+Rust製のgituiを入れて使っていたら、pushできない問題に遭遇。
+
+https://github.com/extrawurst/gitui/issues/495
+
+調べてみるとこのissueを発見。同じような人がいるっぽい。
+
+> ssh-add ~/.ssh/id_rsa - adding key(s) to ssh-agent fixed the error for me)
+
+で、上記コメントにあるように、ssh-agentに秘密鍵を登録したらうまくいった。
+
+パスフレーズありの秘密鍵を使っているとうまくいかなのかな?
+
+---
+
+
+
+
+
 ---
