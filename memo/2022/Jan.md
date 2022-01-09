@@ -220,12 +220,12 @@ https://github.com/extrawurst/gitui/issues/495
 
 PC再起動するとssh-agentに秘密鍵が保持されないので、こうする。
 
-1. keychain に秘密鍵を登録す
+1. keychainに秘密鍵を登録する
 ```
 ssh-add -K ~/.ssh/id_rsa
 ```
 
-2. 初回 ssh 時に keychain から自動で読み込まれるようにする
+2. 初回ssh時にkeychainから自動で読み込まれるようにする
 ```.ssh/config 
 Host *
   UseKeychain yes
