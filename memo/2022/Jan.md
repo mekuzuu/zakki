@@ -218,14 +218,15 @@ https://github.com/extrawurst/gitui/issues/495
 
 で、上記コメントにあるように、ssh-agentに秘密鍵を登録したらうまくいった。
 
-PC再起動するとssh-agentに秘密鍵が保持されないので、こうする。
+PC再起動する度にssh時にまたパスフレーズ聞かれるので、keychainに秘密鍵を登録しておくと良さそう。
 
-1. keychainに秘密鍵を登録する
 ```
 ssh-add -K ~/.ssh/id_rsa
 ```
 
-2. 初回ssh時にkeychainから自動で読み込まれるようにする
+Mac OS Sierra (10.12) 以降では、keychainに保存はされるものの、再起動時に自動では読み込まれないため、下記の設定がされていることが前提。
+
+
 ```.ssh/config 
 Host *
   UseKeychain yes
