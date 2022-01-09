@@ -218,12 +218,19 @@ https://github.com/extrawurst/gitui/issues/495
 
 で、上記コメントにあるように、ssh-agentに秘密鍵を登録したらうまくいった。
 
-パスフレーズありの秘密鍵を使っているとうまくいかなのかな?
+PC再起動するとssh-agentに秘密鍵が保持されないので、こうする。
+
+1. keychain に秘密鍵を登録す
+```
+ssh-add -K ~/.ssh/id_rsa
+```
+
+2. 初回 ssh 時に keychain から自動で読み込まれるようにする
+```.ssh/config 
+Host *
+  UseKeychain yes
+  AddKeysToAgent yes
+```
 
 ---
 
-
-
-
-
----
