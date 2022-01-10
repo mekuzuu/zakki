@@ -239,7 +239,7 @@ Host *
 
 ## Misc
 
-gituiにpushできない問題についてTweetしたところ、まさかのcontributerの方からreplyがあった。
+gituiでpushできない問題についてTweetしたところ、まさかのcontributerの方からreplyがあった。
 
 https://twitter.com/Extrawurst/status/1480196599305416713?s=20
 
