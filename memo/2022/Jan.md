@@ -235,3 +235,18 @@ Host *
 
 ---
 
+# 1/10
+
+## Misc
+
+gituiにpushできない問題についてTweetしたところ、まさかのcontributerの方からreplyがあった。
+
+https://twitter.com/Extrawurst/status/1480196599305416713?s=20
+
+「shell起動時にssh-addするscriptを書けばよい。issueにも書いてあるよ。」という内容。
+
+確かにその通りだなと。（セキュリティ的に微妙という考え方もあるのかな?）
+
+親切な方だなと思ったのと、replyもらえて素直に嬉しかった。
+
+---
