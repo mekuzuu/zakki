@@ -250,3 +250,15 @@ https://twitter.com/Extrawurst/status/1480196599305416713?s=20
 親切な方だなと思ったのと、replyもらえて素直に嬉しかった。
 
 ---
+
+# 1/13
+
+## Rust
+
+The Rust Programming Languageに入門した。
+
+https://doc.rust-lang.org/book/
+
+最初はMicrosfoft社のRustの入門講座から入ったが、どうも自分には合わなくて途中で進めるのをやめた。
+
+---
