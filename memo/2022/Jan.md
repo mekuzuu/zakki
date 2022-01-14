@@ -262,3 +262,37 @@ https://doc.rust-lang.org/book/
 最初はMicrosfoft社のRustの入門講座から入ったが、どうも自分には合わなくて途中で進めるのをやめた。
 
 ---
+
+# 1/14
+
+## Rust
+
+`std::prelude`と言うモジュールがあって、ここに書いてあるものはRustプログラムに暗黙的にimportされる。
+なので、useで明示的にimportしなくても使えるようになっている。
+
+https://doc.rust-lang.org/std/prelude/index.html
+
+例えば、このようなプログラムでは暗黙的に`use std::string;`されているため、`String`を無修飾で呼び出せる。
+
+```rust
+use std::io;
+
+fn main() {
+    println!("Guess the number!");
+
+    println!("Please input your guess.");
+
+    let mut guess = String::new();
+
+    io::stdin()
+        .read_line(&mut guess)
+        .expect("Failed to read line");
+
+    println!("You guessed: {}", guess);
+}
+```
+
+`std::prelude`以外のprelude（ex.`std::io::prelude`)は明示的にimportする必要がある。
+
+---
+
