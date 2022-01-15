@@ -296,3 +296,12 @@ fn main() {
 
 ---
 
+# 1/15
+
+## Go
+
+1.18で入るfuzzing testのtutorialが公開された。
+
+https://go.dev/doc/tutorial/fuzz
+
+---
