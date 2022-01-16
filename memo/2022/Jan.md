@@ -305,3 +305,14 @@ fn main() {
 https://go.dev/doc/tutorial/fuzz
 
 ---
+
+# 1/16
+
+## Misc
+Obsidianと言うMarkdown Editerを使いはじめた。
+
+https://obsidian.md/
+
+まずは日々の雑記や読書メモを一元管理できたら嬉しいなと言う感じで触り始めたばかり。
+
+---
