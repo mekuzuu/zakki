@@ -316,3 +316,103 @@ https://obsidian.md/
 まずは日々の雑記や読書メモを一元管理できたら嬉しいなと言う感じで触り始めたばかり。
 
 ---
+
+# 1/17
+
+## OpenAPI
+
+基本的なデータ構造は同じだけど、一部だけ異なるデータのOpen APIでどうやって表現するか。
+
+みたいなことを調べていたところ、以下の記事で紹介されている手法が使えそう。
+
+https://eng-blog.iij.ad.jp/archives/6813
+
+
+例えば、こんな感じのIoTデバイスから収集したJSON形式のデータを扱うケース。
+
+```json
+[
+    {
+        "id": 0,
+        "time": "2020-10-01T14:48:10Z",
+        "device": "Light",
+        "detail": {
+            "switch": "Off"
+        }
+    },
+    {
+        "id": 1,
+        "time": "2020-10-02T15:00:00Z",
+        "device": "Thermometer",
+        "detail": {
+            "temperature": 26.5
+        }
+    }
+]
+```
+
+idやtimeは共通のプロパティだけど、`detail`の構造が`device`の種類によって異なる。
+
+このように、「データの一部（この場合はdetail）が異なるデータ構造を持つデータを、同じ種類データとして扱うデータモデリング手法を、記事内では「ポリモーフィックパターン」と定義している。
+
+で、このポリモーフィックパターンをOpenAPIでどうやって表現するかというと、`oneOf`と`discriminator`を使う。
+
+
+```yaml
+{
+    "components": {
+        "schemas": {
+            "IoTLog": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "integer" },
+                    "time": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "device": { "enum": ["Light", "Thermometer"] },
+                    "detail": {
+                        "oneOf" : [
+                            { "$ref": "#components/schemas/LightLog" },
+                            { "$ref": "#components/schemas/ThermometerLog" }
+                        ],
+                        "discriminator": {
+                            "propertyName": "device",
+                            "mapping": {
+                                "Light": "#components/schemas/LightLog",
+                                "Thermometer": "#components/schemas/ThermometerLog"
+                            }
+                        }
+                    }
+                }
+            },
+
+            "LightLog": {
+                "type": "object",
+                "properties": {
+                    "switch": { "enum": ["Off", "On"] }
+                }
+            },
+            
+            "ThermometerLog": {
+                "type": "object",
+                "properties": {
+                    "temperature": { "type": "number" }
+                }
+            }
+        }
+    }
+}
+```
+
+`oneOf`を使うと、schemaのどれか1つのみと一致する要素であるというのを表現できる。
+
+`discriminator`を使うと、プロパティの値に応じて適用するschemaを指定することができる。
+
+但し、記事によれば`discriminator`はv3.1でdeprecateを目指しているぽいので時すでに遅しと思った（すでにv3.1.0がリリースされているため）けど、issueの状態はまだopenになっていた。
+
+https://github.com/OAI/OpenAPI-Specification/issues/2143
+
+議論が活発すぎて全部読めてないけど、とりあえずまだdeprecateにはなってなさそう。
+
+いずれにしてもdeprecateは避けられなさそう(JSON Schemaに準拠していくという方針があるようなので）、動向をwatchして必要がありそう。
