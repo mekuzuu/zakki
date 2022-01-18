@@ -415,4 +415,18 @@ https://github.com/OAI/OpenAPI-Specification/issues/2143
 
 議論が活発すぎて全部読めてないけど、とりあえずまだdeprecateにはなってなさそう。
 
-いずれにしてもdeprecateは避けられなさそう(JSON Schemaに準拠していくという方針があるようなので）、動向をwatchして必要がありそう。
+いずれにしてもdeprecateは避けられなさそう(JSON Schemaに準拠していくという方針があるよう）なので、動向をwatchして必要がありそう。
+
+---
+
+# 1/18
+
+## OpenAPI
+
+openapi-generatorでは、`oneOf`をうまく処理できない疑惑・・・。
+
+色んな言語に対応してるのもあると思うけど、openなissueの数がすごい。
+
+https://github.com/OpenAPITools/openapi-generator/issues?q=is%3Aissue+is%3Aopen+oneOf
+
+
