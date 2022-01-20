@@ -429,4 +429,48 @@ openapi-generatorでは、`oneOf`をうまく処理できない疑惑・・・�
 
 https://github.com/OpenAPITools/openapi-generator/issues?q=is%3Aissue+is%3Aopen+oneOf
 
+---
 
+# 1/20
+
+## Rust
+
+シャドーイングという、慣れない概念が出てきたので書いておく。
+
+`let`で同名の変数に値を束縛（変数束縛）することができ、異なる型への束縛もできる。
+
+変数束縛にはスコープがあり、変数束縛は定義されたブロックの内側でのみ有効。
+
+```rust
+fn main() {
+  let x = 1;
+  // The value of x is: 1
+  println!("The value of x is: {}", x);
+  
+  let x = 3.5; 
+  // The value of x is: 3.5
+  println!("The value of x is: {}", x);
+  
+  let x = "hoge"; 
+  // The value of x is: hoge
+  println!("The value of x is: {}", x);
+  
+  {
+    let x = 2;
+    // The value of x is: 2
+    println!("The value of x is: {}", x);
+    
+    let y = 10;
+    // The value of y is: 10
+    println!("The value of y is: {}", y);
+  }
+    
+  // The value of x is: hoge
+  println!("The value of x is: {}", x);  
+    
+  // error[E0425]: cannot find value `y` in this scope
+  println!("The value of y is: {}", y);
+}
+```
+
+https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=ad51915fe010957d3ff073979d4d5d4b
