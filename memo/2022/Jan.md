@@ -474,3 +474,32 @@ fn main() {
 ```
 
 https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=ad51915fe010957d3ff073979d4d5d4b
+
+---
+
+# 1/22
+
+## Rust
+
+関数の戻り値は、
+
+* アロー`->`の後に型を書く
+* 関数内の最後の式が戻り値になる
+* 早期リターンには`return 式;`を使う
+* 戻り値にはセミコロン`;`を付けない
+
+ということで、Goとは全然違う感じ。
+
+```rust
+fn five() -> i32 {
+    5
+}
+
+fn main() {
+    let x = five();
+
+    println!("The value of x is: {}", x);
+}
+```
+
+---
