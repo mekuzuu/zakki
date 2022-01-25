@@ -513,3 +513,36 @@ fn main() {
 コンセプトは概ね理解できたけど、ソースコード書いてる時に普通に手が止まったりしそうだなと。
 
 ---
+
+# 1/25
+
+## Rust
+
+TRLPの↓に書いてある、`#[derive(Debug)]`を使ってDebugしてみたところ、一応`cargo run`はできるけどwarningが出てしまった。
+
+https://doc.rust-lang.org/book/ch05-02-example-structs.html#adding-useful-functionality-with-derived-traits
+
+```rust
+ cargo run
+   Compiling rectangles v0.1.0 (/Users/user/ghq/github.com/ustair/rust-playground/trpl/rectangles)
+warning: field is never read: `width`
+ --> src/main.rs:3:5
+  |
+3 |     width: u32,
+  |     ^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` on by default
+
+warning: field is never read: `height`
+ --> src/main.rs:4:5
+  |
+4 |     height: u32,
+  |     ^^^^^^^^^^^
+
+warning: `rectangles` (bin "rectangles") generated 2 warnings
+    Finished dev [unoptimized + debuginfo] target(s) in 0.39s
+     Running `target/debug/rectangles`
+rect1 is Rectangle { width: 30, height: 50 }
+```
+
+---
