@@ -546,3 +546,15 @@ rect1 is Rectangle { width: 30, height: 50 }
 ```
 
 ---
+
+# 1/26
+
+## Misc
+
+Goのイベントの参加申し込みをした。
+
+* [tenten.go](https://tenntenn.connpass.com/event/237376/)
+
+* [ZOZO.go Meetup](https://zozotech-inc.connpass.com/event/236413/)
+
+---
