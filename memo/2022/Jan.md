@@ -557,8 +557,6 @@ Goのイベントの参加申し込みをした。
 
 * [ZOZO.go Meetup](https://zozotech-inc.connpass.com/event/236413/)
 
----
-
 ## TextFile
 
 GitHubとかで`No new line at end of file`と警告が出るやつ。
@@ -572,3 +570,5 @@ https://hiroakiuno.hatenablog.com/entry/20070409/p1
 >  POSIX 的に行は改行で終了していて、テキストファイルは行の集合だからファイル末尾には必ず改行が来ると。
 
 つまるところ、POSIXとかいうUNIXのカーネルインターフェースの仕様に準拠しているためっぽい。
+
+---
