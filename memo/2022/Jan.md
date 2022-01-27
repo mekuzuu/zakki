@@ -577,7 +577,7 @@ https://hiroakiuno.hatenablog.com/entry/20070409/p1
 
 ## Go
 
-今更ながら、`TestMain`をの存在を知った。
+今更ながら、`TestMain`の存在を知った。
 
 https://pkg.go.dev/testing#hdr-Main
 
