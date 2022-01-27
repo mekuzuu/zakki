@@ -572,3 +572,46 @@ https://hiroakiuno.hatenablog.com/entry/20070409/p1
 つまるところ、POSIXとかいうUNIXのカーネルインターフェースの仕様に準拠しているためっぽい。
 
 ---
+
+# 1/27
+
+## Go
+
+今更ながら、`TestMain`をの存在を知った。
+
+https://pkg.go.dev/testing#hdr-Main
+
+> It is sometimes necessary for a test or benchmark program to do extra setup or teardown before or after it executes. It is also sometimes necessary to control which code runs on the main thread. To support these and other cases, if a test file contains a function:
+
+`TestMain`は引数に`*testing.M`を取り、関数を定義したpackageのテスト実行の前後に任意のコードを実行することができる。
+
+`init`関数でも良いのではと思ったりもしたけど、こちらの記事に書いてある内容を見て確かにと再認識させられた。
+
+https://medium.com/goingogo/why-use-testmain-for-testing-in-go-dafb52b406bc
+
+> As already mentioned, adding a TestMain to a package allows it to run arbitrary code before and after tests run. But only the second part is really new. Running global test setup has always been possible by defining an init() function in a test file. The challenge has been aligning that with corresponding shutdown code when all tests have completed.
+
+```go
+func TestMain(m *testing.M) {
+	log.Println("Do stuff BEFORE the tests!")
+	exitVal := m.Run()
+	log.Println("Do stuff AFTER the tests!")
+	
+	os.Exit(exitVal)
+}
+
+func TestA(t *testing.T) {
+	log.Println("TestA running")
+}
+
+func TestB(t *testing.T) {
+	log.Println("TestB running")
+}
+```
+
+ちなみに`m.Run`はプログラムの終了コードに該当するintを戻り値としているので、上記では`os.Exit`に明示的に渡しているが、Go 1.15以降では`os.Exit`を呼ばなくてよくなっている。
+
+https://khigashigashi.hatenablog.com/entry/2020/08/20/110803
+
+
+---
