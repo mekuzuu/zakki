@@ -11,3 +11,21 @@ https://go.dev/blog/go1.18beta2
 > Because we are taking the time to issue a second beta, we now expect that the Go 1.18 release candidate will be issued in February, with the final Go 1.18 release in March.
 
 ---
+
+# 2/6
+
+## Vim
+
+Git管理しているファイルの差分を左端に表示してくれるプラグイン。
+
+https://github.com/airblade/vim-gitgutter
+
+デフォルトの背景色が見辛くて、透明にする方法を調べて見たらこれに書いてあった。
+
+https://stackoverflow.com/questions/15277241/changing-vim-gutter-color
+
+```vim
+highlight clear SignColumn
+```
+
+---
