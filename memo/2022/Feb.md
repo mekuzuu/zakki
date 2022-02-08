@@ -29,3 +29,17 @@ highlight clear SignColumn
 ```
 
 ---
+
+# 2/8
+
+## Go
+
+aws-sdk-go-v2のtest用のsetup処理を提供するファイルが参考になる。
+
+https://github.com/aws/aws-sdk-go-v2/blob/main/service/internal/integrationtest/s3/setup_test.go
+
+`testing.M`は便利。
+
+test後のcleanup処理が要らない場合は、init関数内にsetup処理を書いていく感じでもいいのかなと思っている。
+
+---
