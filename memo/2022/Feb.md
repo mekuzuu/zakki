@@ -43,3 +43,21 @@ https://github.com/aws/aws-sdk-go-v2/blob/main/service/internal/integrationtest/
 test後のcleanup処理が要らない場合は、init関数内にsetup処理を書いていく感じでもいいのかなと思っている。
 
 ---
+
+# 2/14
+
+## Misc
+
+最近このzakkiを更新できていない・・・。
+
+## Rust
+
+コンセプトから理解するRustという書籍を購入したので、読んでいる。
+
+Rust独特の機能にフォーカスを当てていて、日本語も平易でわかりやすい。
+
+読書メモを取りながらなので、読み終えるまで少し時間がかかりそう。
+
+https://gihyo.jp/book/2022/978-4-297-12562-2
+
+---
