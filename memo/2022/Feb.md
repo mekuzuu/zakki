@@ -60,4 +60,19 @@ Rust独特の機能にフォーカスを当てていて、日本語も平易で�
 
 https://gihyo.jp/book/2022/978-4-297-12562-2
 
+## Go
+
+3日前くらいに1.17.7のリリースがあった。
+
+3件のセキュリティアップデート。
+
+https://groups.google.com/g/golang-announce/c/SUsQn0aSgPQ/m/gx45t8JEAgAJ
+
+1つはmath/big packageの`Rat.SetString()`を使うと大量のRAMが消費され、システムがクラッシュまたはタイムアウトする可能性があるみたいなやつっぽい。
+
+> math/big: prevent large memory consumption in Rat.SetString
+An attacker can cause unbounded memory growth in a program using (*Rat).SetString
+due to an unhandled overflow. 
+This is CVE-2022-23772 and Go issue https://go.dev/issue/50699.
+
 ---
