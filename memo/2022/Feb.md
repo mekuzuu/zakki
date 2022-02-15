@@ -76,3 +76,30 @@ due to an unhandled overflow.
 This is CVE-2022-23772 and Go issue https://go.dev/issue/50699.
 
 ---
+
+# 2/15
+
+# Go
+
+Echoの`MultipartForm`は、デフォルトでは32MBが上限になっている。
+
+そのため、これよりも大きいデータを扱いたい場合はこんな風に明示的に指定しましょうねというお話。
+
+```go
+const MaxFileSize untyped int = 104857600
+
+c.Request().ParseMultipartForm(MaxFileSize)
+```
+https://kaminashi-developer.hatenablog.jp/entry/golang-echo-multipart
+
+同僚の人に教えてもらったのだけど、`MultipartForm`の前にForm系の処理を使っている場合は効果がないらしい。
+
+その理由については、EchoがWrapしているGoのnet/http packageのrequest.goのForm系の処理を見ると分かる。
+
+https://github.com/golang/go/blob/0fdc3801bfd43d6f55e4ea5bf095e1ea55430339/src/net/http/request.go
+
+Formが初期化されていない場合は、デフォルトで32MBが設定されてしまうっぽい。
+
+なので、`ParseMultipartForm`を一番最初に呼び出してあげれば任意のサイズを指定できるはず。
+
+---
