@@ -103,3 +103,15 @@ Formが初期化されていない場合は、デフォルトで32MBが設定さ
 なので、`ParseMultipartForm`を一番最初に呼び出してあげれば任意のサイズを指定できるはず。
 
 ---
+
+2/17
+
+##Go
+
+Go1.18のRelease Candidate1のブランチが切られていた。
+
+いよいよという感じがしてきた。
+
+https://github.com/golang/go/commit/cb5a598d7f2ebd276686403d141a97c026d33458
+
+---
