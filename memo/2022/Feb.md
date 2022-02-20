@@ -104,7 +104,7 @@ Formが初期化されていない場合は、デフォルトで32MBが設定さ
 
 ---
 
-2/17
+# 2/17
 
 ##Go
 
@@ -113,5 +113,20 @@ Go1.18のRelease Candidate1のブランチが切られていた。
 いよいよという感じがしてきた。
 
 https://github.com/golang/go/commit/cb5a598d7f2ebd276686403d141a97c026d33458
+
+---
+
+# 2/20
+
+## Rust
+
+`Option<T>`型に対する`unwrap()`って、panicするのでどういう時に使うのか気になって調べてみた。
+
+Rustで有名?なCADDiさんの記事を拝見するに、Productionコードでは基本的に使わないっぽい。
+
+> なお、Productionでは、unwrap(), expect()は処理が失敗した場合にpanicを返すので原則使わない方が良いでしょう。
+(テストやサンプルコードで使うのは問題ありません。
+
+https://caddi.tech/archives/2381#OptionResultcombinator
 
 ---
