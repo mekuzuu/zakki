@@ -130,3 +130,29 @@ Rustで有名?なCADDiさんの記事を拝見するに、Productionコードで
 https://caddi.tech/archives/2381#OptionResultcombinator
 
 ---
+
+# 2/25
+
+## Renovate
+
+https://github.com/renovatebot/renovate/pull/14033
+
+go.modのreplaceディレクティブを使っている場合、下記のように複数moduleを一つのreplace内にまとめにしているとRenovateがうまく扱ってくれない問題があった。
+
+```go
+replace (
+    github.com/aaa
+    github.com/bbb
+    github.com/ccc
+)
+```
+
+なので、moduleごとにreplaceを宣言する必要があった。
+
+しかし、先日その対応がリリースされていた。
+
+https://github.com/renovatebot/renovate/releases/tag/31.71.0
+
+Go 1.18でWorkspace Modeが来たら、go.modのreplaceディレクティブを使わなくなるはずだけど、良いですね。
+
+---
