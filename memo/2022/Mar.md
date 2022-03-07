@@ -37,3 +37,36 @@ Reasoning for that is: Method name Param is too ambiguous. Context interface alr
 default error handler signature change
 
 ---
+
+# 3/7
+
+
+## Go
+
+3日前くらいに1.17.8のリリースがあった。
+
+1件のセキュリティアップデートのみ。
+
+https://groups.google.com/g/golang-announce/c/RP1hfrBYVuk/m/I7ouYouLAAAJ
+
+具体的にどんな脆弱性があったのか把握するため、issueを見てみる。
+
+https://github.com/golang/go/issues/51112
+
+どうやら、regexp packageのparserでgoroutine stack overflowsを引き起こす脆弱性があった模様。
+
+> Specifically, strings.Repeat("(", 1<<20)+strings.Repeat(")", 1<<20) is enough.
+
+> Depth means the depth of the parse tree: (((((a))))) has depth 5, as does a***** in POSIX mode. (In Perl mode that's a syntax error.)
+
+とあるので、ネストした括弧の数がこの問題を引き起こすトリガっぽい。
+
+> To fix the problem I intend to cap the maximum depth of a regexp accepted by syntax.Parse at 1000, >5X what is needed by Google C++ and really about 100X what is reasonable.
+
+そこで、ネストの数に上限を設けるとしている。上限値は1000（つまり、1000層?）が適切というかリーズナブルといっている。
+
+これについては、このissueに対応するcommitを見ても確認することができる。
+
+https://github.com/golang/go/commit/452f24ae94f38afa3704d4361d91d51218405c0a
+
+---
