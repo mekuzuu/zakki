@@ -70,3 +70,15 @@ https://github.com/golang/go/issues/51112
 https://github.com/golang/go/commit/452f24ae94f38afa3704d4361d91d51218405c0a
 
 ---
+
+3/11
+
+## Misc
+
+コンセプトから理解するRustを読み終えた。
+
+雑な読書メモをgistにあげてあって、感想も忘れないうちに書くつもり。
+
+https://gist.github.com/mudrk/507bb55dc5fb0a2257174249219c3230
+
+---
