@@ -100,3 +100,15 @@ Markdawnが扱えれば何でも良かったのですが、Hugoを選定した�
 https://open-groove.net/other-tools/hugo-github-pages-blog/
 
 ---
+
+# 3/16
+
+## Go
+
+ついにGo 1.18がリリースされた。
+
+https://github.com/golang/go/releases/tag/go1.18
+
+https://go.dev/doc/go1.18
+
+---
