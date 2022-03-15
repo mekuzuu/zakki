@@ -71,7 +71,7 @@ https://github.com/golang/go/commit/452f24ae94f38afa3704d4361d91d51218405c0a
 
 ---
 
-3/11
+# 3/11
 
 ## Misc
 
@@ -80,5 +80,23 @@ https://github.com/golang/go/commit/452f24ae94f38afa3704d4361d91d51218405c0a
 雑な読書メモをgistにあげてあって、感想も忘れないうちに書くつもり。
 
 https://gist.github.com/mudrk/507bb55dc5fb0a2257174249219c3230
+
+---
+
+# 3/15
+
+## Misc
+
+Tumblrの記事をHugoに移行した。
+
+https://mudrk.github.io/
+
+TumblrのMarkdawn（日本語入力）が使いづらかったのが移行理由。
+
+Markdawnが扱えれば何でも良かったのですが、Hugoを選定した理由はGithubPagesを使って簡単に公開できそうだったのと、Goで書かれていると言うことで馴染みがあったため。
+
+移行に辺り、参考にした記事はこちら。
+
+https://open-groove.net/other-tools/hugo-github-pages-blog/
 
 ---
