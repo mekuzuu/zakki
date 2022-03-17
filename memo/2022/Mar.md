@@ -112,3 +112,19 @@ https://github.com/golang/go/releases/tag/go1.18
 https://go.dev/doc/go1.18
 
 ---
+
+# 3/18
+
+## Misc
+
+Hugo + GithubPagesで作ったブログの運用リポジトリを作り直した。
+
+先日参考にした記事だと、HugoのリポジトリとGithubPagesのリポジトリを分けていたのだけど、こんな面倒な運用をしなくてもいいことに気づいた。
+
+GithubPagesのリポジトリで`main`ブランチと`gh-pages`ブランチを使うことで、1つのリポジトリで運用することができる。
+
+詳細はHugoの公式ドキュメントを参考にした。
+
+https://gohugo.io/hosting-and-deployment/hosting-on-github/
+
+---
