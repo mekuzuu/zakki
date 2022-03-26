@@ -128,3 +128,22 @@ GithubPagesのリポジトリで`main`ブランチと`gh-pages`ブランチを�
 https://gohugo.io/hosting-and-deployment/hosting-on-github/
 
 ---
+
+# 3/26
+
+## Go
+
+Go 1.18のRelease Noteを読んでいて知ったのだけど」、text/templateとhtml/template packageで`continute`と`break`が使えるようになったみたい。
+
+従来は、`if`をネストして条件にマッチする値を出力する必要があって可読性が落ちやすかったので地味に嬉しいアップデート。
+
+https://tip.golang.org/doc/go1.18
+
+> Within a range pipeline the new {{break}} command will end the loop early and the new {{continue}} command will immediately start the next loop iteration. 
+> The and function no longer always evaluates all arguments; it stops evaluating arguments after the first argument that evaluates to false. Similarly, the or function now stops evaluating arguments after the first argument that evaluates to true. This makes a difference if any of the arguments is a function call.
+
+2017年頃にissueが立っていてようやく入ったて感じなのかな。
+
+https://github.com/golang/go/issues/20531
+
+---
