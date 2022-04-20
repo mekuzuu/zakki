@@ -10,3 +10,16 @@ Go 1.18で導入されたGenericsを実プロジェクトで使う場合は、�
 https://github.com/golangci/golangci-lint/pull/2438
 
 ---
+
+# 4/20
+
+## Rust
+
+Rust製のFormatter。
+
+https://rome.tools/docs/lint/rules#about-rome
+
+Prettierと比較して9~12倍速いらしいが、まだ開発途上。
+Markdownにも対応予定っぽいので、いつか使ってみたい。
+
+---
